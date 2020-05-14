@@ -491,7 +491,35 @@ set(handles_rating.rb_t,'Callback',{@rb_t_rating_Callback,handles,handles_rating
 set(handles_rating.pb_cancel,'Callback',{@pb_rating_cancel_Callback,handles,handles_rating})
 set(handles_rating.pb_count,'Callback',{@pb_rating_count_Callback,handles,handles_rating})
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
+h=open('rating_of_personnel.fig');
+handles_rating=guihandles(h);
+par=guidata(handles.win_main);
+[znach,names]=xlsread(par.xlfile,'l3');
+NumOfRows=size(names,1);
+for i=1:NumOfRows-1
+  names_of_rows(i)=names(i+1,1);
+end
+for i=1:9
+    names_of_colunms(i)=names(1,i+1);
+end
+set(handles_rating.tab_of_personnel,'data', znach);
+set(handles_rating.tab_of_personnel,'ColumnName',names_of_colunms);
+set(handles_rating.tab_of_personnel,'RowName',names_of_rows);
+par2.typeofmodel=1;
+par2.kriterii=1;
+par2.k=zeros(9,3);
+par2.krit=zeros(9,2);
+par2.rb_for_krit=1;
+guidata(handles_rating.win_rating,par2)
+set(handles_rating.rb_a,'Callback',{@rb_a_rating_Callback,handles,handles_rating})
+set(handles_rating.rb_l,'Callback',{@rb_l_rating_Callback,handles,handles_rating})
+set(handles_rating.rb_s,'Callback',{@rb_s_rating_Callback,handles,handles_rating})
+set(handles_rating.rb_t,'Callback',{@rb_t_rating_Callback,handles,handles_rating})
+set(handles_rating.pb_cancel,'Callback',{@pb_rating_cancel_Callback,handles,handles_rating})
+set(handles_rating.pb_count,'Callback',{@pb_rating_count_Callback,handles,handles_rating})
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
 set(handles_rating.pb_k1,'Callback',{@pb_k1_rating_Callback,handles,handles_rating})
 set(handles_rating.pb_k2,'Callback',{@pb_k2_rating_Callback,handles,handles_rating})

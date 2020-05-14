@@ -814,6 +814,18 @@ for i = 1:vsego_sotr % сортируем
     end
 end
 
+
+for i = 1:vsego_sotr % сортируем
+    for j = 1:vsego_sotr-i
+        if sotr_ball_for_all(j) < sotr_ball_for_all(j+1)
+            x=sotr_ball_for_all(j); sotr_ball_for_all(j)=sotr_ball_for_all(j+1); sotr_ball_for_all(j+1)=x;
+            for l=1:9
+            y=sotr_ball(j,l); sotr_ball(j,l)=sotr_ball(j+1,l); sotr_ball(j+1,l)=y;
+            end
+            z=sotr_name(j); sotr_name(j)=sotr_name(j+1); sotr_name(j+1)=z;
+        end
+    end
+end
     sotrudnik.name=sotr_name;
     sotrudnik.ball_vsego=sotr_ball_for_all;
     sotrudnik.balli=sotr_ball;

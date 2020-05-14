@@ -1012,7 +1012,7 @@ sotr_ball_for_all(k,r)=assessment_after_weight_for_groups(r);
 end
 end
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     end
    
 set(handles_comparison.table,'data', sotr_ball_for_all);

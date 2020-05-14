@@ -1013,12 +1013,7 @@ end
 end
 
 
-   % for i = 1:NumOfRows
-     %   sotr_data(i,1)=sotr_ball_for_all(i);
-      %  for j=1:9
-       %     sotr_data(i,j+1)=znach(i,j);
-       % end
-  %  end
+    end
    
 set(handles_comparison.table,'data', sotr_ball_for_all);
 set(handles_comparison.table,'ColumnName',names_of_colunms);

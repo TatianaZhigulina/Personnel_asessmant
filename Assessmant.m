@@ -98,6 +98,15 @@ k6=str2num(get(handles_menu_add.edt_k6,'String'));
 k7=str2num(get(handles_menu_add.edt_k7,'String'));
 k8=str2num(get(handles_menu_add.edt_k8,'String'));
 k9=str2num(get(handles_menu_add.edt_k9,'String'));
+k1=str2num(get(handles_menu_add.edt_k1,'String'));
+k2=str2num(get(handles_menu_add.edt_k2,'String'));
+k3=str2num(get(handles_menu_add.edt_k3,'String'));
+k4=str2num(get(handles_menu_add.edt_k4,'String'));
+k5=str2num(get(handles_menu_add.edt_k5,'String'));
+k6=str2num(get(handles_menu_add.edt_k6,'String'));
+k7=str2num(get(handles_menu_add.edt_k7,'String'));
+k8=str2num(get(handles_menu_add.edt_k8,'String'));
+k9=str2num(get(handles_menu_add.edt_k9,'String'));
 s=par.xlfile;
 set(handles_menu_add.edt_fio,'String','');
 set(handles_menu_add.edt_k1,'String','');
@@ -365,6 +374,14 @@ set(handles_criteria.text_k,'String','Заполните информацию по критерию "Лидерски
 set(handles_criteria.btn_add,'Callback',{@btn_add_c_Callback,handles_model,handles_criteria})
 set(handles_criteria.btn_cancel,'Callback',{@btn_cancel_c_Callback,handles_model,handles_criteria})
 set(handles_criteria.btn_plot,'Callback',{@btn_plot_onecriterii_Callback,handles_model,handles_criteria})
+
+function btn_k8_Callback(src,evt,handles,handles_model)
+par1=guidata(handles_model.win_model);
+par1.criterii=8;
+guidata(handles_model.win_model,par1)
+h=open('criterion.fig');
+handles_criteria=guihandles(h);
+
 
 function btn_k8_Callback(src,evt,handles,handles_model)
 par1=guidata(handles_model.win_model);

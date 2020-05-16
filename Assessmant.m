@@ -1,7 +1,7 @@
 %par1=guidata(handles_model.win_model);
 %guidata(handles_model.win_model,par1);
 %s='E:\mathlab\bin\staff.xlsx';
-%xlswrite(s,par1.k,'l8','B2');
+%xlswrite(s,par1.k,'l9','B2');
 function Assessmant
 H=open('Personnel_assessment_.fig');
 % указатели на объекты основного окна integral записываем в структуру handles

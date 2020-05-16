@@ -202,6 +202,17 @@ for i=1:3
         assessment_after_weight(i)= assessment_after_weight(i)+(par1.k(3*(i-1)+j,1)/sum_weight_for_criterii)*par1.assessment;
         guidata(handles_model.win_model,par1);
     end
+  for j=1:9
+        par1=guidata(handles_model.win_model);
+        niz=par1.k(3*(i-1)+j,2);
+        verh=par1.k(3*(i-1)+j,3);
+        model=par1.typeofmodel;
+        guidata(handles_model.win_model,par1);
+        assessment_for_criterii(handles_model,niz,verh,s(3*(i-1)+j),model,5,1);
+         par1=guidata(handles_model.win_model);
+        assessment_after_weight(i)= assessment_after_weight(i)+(par1.k(3*(i-1)+j,1)/sum_weight_for_criterii)*par1.assessment;
+        guidata(handles_model.win_model,par1);
+    end
     if i==1
         set(handles_model.txt_itog1,'String',assessment_after_weight(i));
         set(handles_model.itog1,'Visible','On');

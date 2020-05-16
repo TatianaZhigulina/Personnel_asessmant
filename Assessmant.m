@@ -945,6 +945,10 @@ a=handles_comparison.rb_k9.Value;
 if a==1 
     par3.criterii=9;
 end
+
+ for r=1:4
+    assessment_after_weight_for_groups(r)=assessment_after_weight_for_groups(r)+(w(i)/all_weight)*assessment_after_weight(i,r); 
+    end 
 i=par3.criterii;
 switch i
     case 1

@@ -174,6 +174,20 @@ for i=1:NumOfRows-1
     end
 end
 
+function btn_model_ok_Callback(src,evt,handles,handles_model)
+par=guidata(handles.win_main);
+fio=get(handles_model.edt_fio,'String');
+[znach,names]=xlsread(par.xlfile,'l3');
+NumOfRows=size(names,1);
+for i=1:NumOfRows-1
+    k=names(i+1,1);
+    if strcmp(k,fio)
+        for j=1:9
+            s(j)=znach(i,j);
+        end
+    end
+end
+
 w(1)=get(handles_model.popup_w1,'Value');
 w(2)=get(handles_model.popup_w2,'Value');
 w(3)=get(handles_model.popup_w3,'Value');
@@ -187,6 +201,17 @@ for i=1:3
     guidata(handles_model.win_model,par1);
     assessment_after_weight(i)=0;
     for j=1:3
+        par1=guidata(handles_model.win_model);
+        niz=par1.k(3*(i-1)+j,2);
+        verh=par1.k(3*(i-1)+j,3);
+        model=par1.typeofmodel;
+        guidata(handles_model.win_model,par1);
+        assessment_for_criterii(handles_model,niz,verh,s(3*(i-1)+j),model,5,1);
+         par1=guidata(handles_model.win_model);
+        assessment_after_weight(i)= assessment_after_weight(i)+(par1.k(3*(i-1)+j,1)/sum_weight_for_criterii)*par1.assessment;
+        guidata(handles_model.win_model,par1);
+    end
+  for j=1:9
         par1=guidata(handles_model.win_model);
         niz=par1.k(3*(i-1)+j,2);
         verh=par1.k(3*(i-1)+j,3);
@@ -960,6 +985,10 @@ a=handles_comparison.rb_k9.Value;
 if a==1 
     par3.criterii=9;
 end
+
+ for r=1:4
+    assessment_after_weight_for_groups(r)=assessment_after_weight_for_groups(r)+(w(i)/all_weight)*assessment_after_weight(i,r); 
+    end 
 i=par3.criterii;
 switch i
     case 1

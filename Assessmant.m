@@ -370,6 +370,14 @@ guidata(handles_model.win_model,par1)
 h=open('criterion.fig');
 handles_criteria=guihandles(h);
 
+
+function btn_k8_Callback(src,evt,handles,handles_model)
+par1=guidata(handles_model.win_model);
+par1.criterii=8;
+guidata(handles_model.win_model,par1)
+h=open('criterion.fig');
+handles_criteria=guihandles(h);
+
 set(handles_criteria.text_k,'String','Заполните информацию по критерию "Целеустремленность"');
 set(handles_criteria.btn_add,'Callback',{@btn_add_c_Callback,handles_model,handles_criteria})
 set(handles_criteria.btn_cancel,'Callback',{@btn_cancel_c_Callback,handles_model,handles_criteria})

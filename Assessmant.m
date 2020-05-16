@@ -1,7 +1,7 @@
 %par1=guidata(handles_model.win_model);
 %guidata(handles_model.win_model,par1);
 %s='E:\mathlab\bin\staff.xlsx';
-%xlswrite(s,par1.k,'l8','B2');
+%xlswrite(s,par1.k,'l9','B2');
 function Assessmant
 H=open('Personnel_assessment_.fig');
 % указатели на объекты основного окна integral записываем в структуру handles
@@ -230,6 +230,18 @@ else
     par1.assessment=(sotr-niz)/(verh-niz);
 end
     case 2
+    b1=2; b2=4; b3=1;
+a1=b1/(b1*niz+b2*(verh-niz)+b3*(diap-verh));
+a2=b2/(b1*niz+b2*(verh-niz)+b3*(diap-verh));
+a3=b3/(b1*niz+b2*(verh-niz)+b3*(diap-verh));
+if sotr<=niz
+    par1.assessment=sotr*a1;
+elseif sotr>=verh
+    par1.assessment=niz*a1+(verh-niz)*a2+a3*(diap-verh-diap+sotr);
+else
+    par1.assessment=niz*a1+(sotr-niz)*a2;
+end
+case 3
     b1=2; b2=4; b3=1;
 a1=b1/(b1*niz+b2*(verh-niz)+b3*(diap-verh));
 a2=b2/(b1*niz+b2*(verh-niz)+b3*(diap-verh));

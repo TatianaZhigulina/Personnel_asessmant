@@ -165,6 +165,20 @@ for i=1:NumOfRows-1
     end
 end
 
+function btn_model_ok_Callback(src,evt,handles,handles_model)
+par=guidata(handles.win_main);
+fio=get(handles_model.edt_fio,'String');
+[znach,names]=xlsread(par.xlfile,'l3');
+NumOfRows=size(names,1);
+for i=1:NumOfRows-1
+    k=names(i+1,1);
+    if strcmp(k,fio)
+        for j=1:9
+            s(j)=znach(i,j);
+        end
+    end
+end
+
 w(1)=get(handles_model.popup_w1,'Value');
 w(2)=get(handles_model.popup_w2,'Value');
 w(3)=get(handles_model.popup_w3,'Value');
